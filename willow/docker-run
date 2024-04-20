@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+docker run --detach --name=willow-application-server --pull=always --network=host --restart=unless-stopped --volume=was-storage:/app/storage ghcr.io/toverainc/willow-application-server

@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+MQTT_HOST=localhost
+MQTT_PORT=18883
+
+arecord -f cd -t wav | mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'rhasspy/audioServer/hive/audioFrame' -s

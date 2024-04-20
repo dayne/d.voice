@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+if [ ! -d openWakeWord-cpp ]; then
+  echo "Git cloning"
+  git clone https://github.com/rhasspy/openWakeWord-cpp
+  if [ $? -ne 0 ]; then
+    echo "Git clone failed".
+    exit 1
+  fi
+fi
+
+cd openWakeWord-cpp
+make
+
+# wget https://github.com/microsoft/onnxruntime/releases
+# tar xvfz
+# cp -r linux-x64/native/libonnxruntime.so ~/.local/lib/
+# cp -r build/native/include/ ~/.local/include/onnxruntime/
+
+
+if [ $? -eq 0 ]; then
+  echo "build successful"
+else
+  echo "build failed"
+fi

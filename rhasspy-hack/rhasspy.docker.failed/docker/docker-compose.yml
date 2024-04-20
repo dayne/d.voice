@@ -1,0 +1,14 @@
+rhasspy:
+    image: "rhasspy/rhasspy"
+    container_name: rhasspy
+    restart: unless-stopped
+    volumes:
+      #- "$HOME/.config/rhasspy/profiles:/profiles"
+        - "./profiles"
+        - "/etc/localtime:/etc/localtime:ro"
+    ports:
+        - "12101:12101"
+        - "18883:1883"
+    devices:
+        - "/dev/snd:/dev/snd"
+    command: --user-profiles /profiles --profile en
