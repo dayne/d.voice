@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+#source $(t3x -T)
+
+LOCATION=${LOCATION:-"4711"}
+MQTT_HOST=${MQTT_HOST:-localhost}
+MQTT_PORT=${MQTT_PORT:-1883}
+MQTT_TOPIC=${MQTT_TOPIC:-"/${LOCATION}/${HOSTNAME}/speak"}
+all_args="$(printf "%s " "$@")"
+speak_cmd="echo '$all_args' | mosquitto_pub -h '${MQTT_HOST}' -p ${MQTT_PORT} -t '${MQTT_TOPIC}' -l"
+echo $speak_cmd
+eval $speak_cmd
