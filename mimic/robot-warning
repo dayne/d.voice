@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export PATH=$PATH:/home/dayne/projects/mimic3/.venv/bin/mimic3/
+
+espeak-ng "beep"
+sleep 0.25
+espeak-ng "beep boop! I am a robot" 
+mimic3 "the robots are becoming more advanced" 2> /dev/null
+sleep 0.5
+mimic3 -v en_US/hifi-tts_low "they will come for you! "  2> /dev/null 
+sleep 0.5
+mimic3 -v en_US/vctk_low "when they arrive! they will give you hugs" 2> /dev/null
+sleep 1
+espeak-ng "... many ... many crushing hugs"
